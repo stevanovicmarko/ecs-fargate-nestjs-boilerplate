@@ -157,7 +157,7 @@ resource "aws_iam_role_policy" "ecs_execution_policy" {
   name = "ecs_execution_policy"
   role = aws_iam_role.ecs_execution_role.id
 
-   # Policy to allow ECS to pull images from ECR and write logs to CloudWatch
+  # Policy to allow ECS to pull images from ECR and write logs to CloudWatch
   policy = jsonencode({
     Version = "2012-10-17",
     Statement = [

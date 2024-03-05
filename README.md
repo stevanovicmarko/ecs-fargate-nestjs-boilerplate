@@ -36,14 +36,23 @@ $ npm run test:cov
 ## AWS and Terraform
 - Install [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) or [OpenTofu](https://opentofu.org/)
 - Set up your AWS credentials and AWS CLI
-- Run the following commands to create the infrastructure on AWS
+- Open `terraform/remote-state/variables.tf` and set the `bucket` and `key` variables to your own values (bucket must be globally unique!)
+- Run the following commands inside `terraform/remote-state` to create the remote state on AWS (this should be done only once):
+
 ```bash
-cd terraform
 terraform init
 terraform plan
 terraform apply
 ```
-or use `tofu` if you prefer it to `terraform`.
+<small><b>or use `tofu` if you prefer it to `terraform`.</b></small>
+
+- Run the following commands inside `terraform/infra` to create the infrastructure on AWS:
+
+```bash
+terraform init
+terraform plan
+terraform apply
+```
 
 ### Docker
 - Build the image

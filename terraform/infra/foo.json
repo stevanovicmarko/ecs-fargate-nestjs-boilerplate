@@ -1,0 +1,725 @@
+{
+  "version": 4,
+  "terraform_version": "1.6.2",
+  "serial": 4,
+  "lineage": "5290e346-d6a0-5e92-cd07-58ddd0b82c1f",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "data",
+      "type": "aws_subnets",
+      "name": "default_public",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "filter": [
+              {
+                "name": "default-for-az",
+                "values": [
+                  "true"
+                ]
+              },
+              {
+                "name": "vpc-id",
+                "values": [
+                  "vpc-0862d1c5a0373262f"
+                ]
+              }
+            ],
+            "id": "eu-central-1",
+            "ids": [
+              "subnet-039dc66359f705c37",
+              "subnet-04120076c06047e06",
+              "subnet-0fc8df3dd56db4503"
+            ],
+            "tags": null,
+            "timeouts": null
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_vpc",
+      "name": "default",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:729731350901:vpc/vpc-0862d1c5a0373262f",
+            "cidr_block": "172.31.0.0/16",
+            "cidr_block_associations": [
+              {
+                "association_id": "vpc-cidr-assoc-053df3c8ffedb76dc",
+                "cidr_block": "172.31.0.0/16",
+                "state": "associated"
+              }
+            ],
+            "default": true,
+            "dhcp_options_id": "dopt-0261eadf72dae8c4e",
+            "enable_dns_hostnames": true,
+            "enable_dns_support": true,
+            "enable_network_address_usage_metrics": false,
+            "filter": null,
+            "id": "vpc-0862d1c5a0373262f",
+            "instance_tenancy": "default",
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "main_route_table_id": "rtb-0b1f0a14bb86dd07d",
+            "owner_id": "729731350901",
+            "state": null,
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_cloudwatch_log_group",
+      "name": "ecs_logs",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:logs:eu-central-1:729731350901:log-group:/ecs/acme-app",
+            "id": "/ecs/acme-app",
+            "kms_key_id": "",
+            "log_group_class": "STANDARD",
+            "name": "/ecs/acme-app",
+            "name_prefix": "",
+            "retention_in_days": 30,
+            "skip_destroy": false,
+            "tags": {},
+            "tags_all": {}
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_ecr_repository",
+      "name": "my_ecr_repo",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ecr:eu-central-1:729731350901:repository/acme_repository",
+            "encryption_configuration": [
+              {
+                "encryption_type": "AES256",
+                "kms_key": ""
+              }
+            ],
+            "force_delete": true,
+            "id": "acme_repository",
+            "image_scanning_configuration": [
+              {
+                "scan_on_push": false
+              }
+            ],
+            "image_tag_mutability": "MUTABLE",
+            "name": "acme_repository",
+            "registry_id": "729731350901",
+            "repository_url": "729731350901.dkr.ecr.eu-central-1.amazonaws.com/acme_repository",
+            "tags": {},
+            "tags_all": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_ecs_cluster",
+      "name": "my_cluster",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ecs:eu-central-1:729731350901:cluster/acme-cluster",
+            "configuration": [],
+            "id": "arn:aws:ecs:eu-central-1:729731350901:cluster/acme-cluster",
+            "name": "acme-cluster",
+            "service_connect_defaults": [],
+            "setting": [
+              {
+                "name": "containerInsights",
+                "value": "disabled"
+              }
+            ],
+            "tags": {},
+            "tags_all": {}
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_ecs_service",
+      "name": "this",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "alarms": [],
+            "capacity_provider_strategy": [],
+            "cluster": "arn:aws:ecs:eu-central-1:729731350901:cluster/acme-cluster",
+            "deployment_circuit_breaker": [
+              {
+                "enable": false,
+                "rollback": false
+              }
+            ],
+            "deployment_controller": [
+              {
+                "type": "ECS"
+              }
+            ],
+            "deployment_maximum_percent": 200,
+            "deployment_minimum_healthy_percent": 100,
+            "desired_count": 1,
+            "enable_ecs_managed_tags": false,
+            "enable_execute_command": false,
+            "force_new_deployment": null,
+            "health_check_grace_period_seconds": 0,
+            "iam_role": "/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+            "id": "arn:aws:ecs:eu-central-1:729731350901:service/acme-cluster/acme-service",
+            "launch_type": "FARGATE",
+            "load_balancer": [
+              {
+                "container_name": "acme-container",
+                "container_port": 3000,
+                "elb_name": "",
+                "target_group_arn": "arn:aws:elasticloadbalancing:eu-central-1:729731350901:targetgroup/acme-tg/0594a2941152be3a"
+              }
+            ],
+            "name": "acme-service",
+            "network_configuration": [
+              {
+                "assign_public_ip": true,
+                "security_groups": [
+                  "sg-077fedbdad01a66b4"
+                ],
+                "subnets": [
+                  "subnet-039dc66359f705c37",
+                  "subnet-04120076c06047e06",
+                  "subnet-0fc8df3dd56db4503"
+                ]
+              }
+            ],
+            "ordered_placement_strategy": [],
+            "placement_constraints": [],
+            "platform_version": "LATEST",
+            "propagate_tags": "NONE",
+            "scheduling_strategy": "REPLICA",
+            "service_connect_configuration": [],
+            "service_registries": [],
+            "tags": {},
+            "tags_all": {},
+            "task_definition": "arn:aws:ecs:eu-central-1:729731350901:task-definition/acme-task:7",
+            "timeouts": null,
+            "triggers": {},
+            "wait_for_steady_state": false
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_ecr_repository.my_ecr_repo",
+            "aws_ecs_cluster.my_cluster",
+            "aws_ecs_task_definition.my_task",
+            "aws_iam_role.ecs_execution_role",
+            "aws_lb_target_group.my_target_group",
+            "aws_security_group.sg",
+            "data.aws_subnets.default_public",
+            "data.aws_vpc.default"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_ecs_task_definition",
+      "name": "my_task",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ecs:eu-central-1:729731350901:task-definition/acme-task:7",
+            "arn_without_revision": "arn:aws:ecs:eu-central-1:729731350901:task-definition/acme-task",
+            "container_definitions": "[{\"cpu\":0,\"environment\":[],\"essential\":true,\"healthCheck\":{\"command\":[\"CMD-SHELL\",\"curl -f http://localhost:3000/api/healthcheck || exit 1\"],\"interval\":30,\"retries\":3,\"startPeriod\":60,\"timeout\":5},\"image\":\"729731350901.dkr.ecr.eu-central-1.amazonaws.com/acme_repository:latest\",\"logConfiguration\":{\"logDriver\":\"awslogs\",\"options\":{\"awslogs-group\":\"/ecs/acme-app\",\"awslogs-region\":\"eu-central-1\",\"awslogs-stream-prefix\":\"ecs\"}},\"mountPoints\":[],\"name\":\"acme-container\",\"portMappings\":[{\"containerPort\":3000,\"hostPort\":3000,\"protocol\":\"tcp\"}],\"systemControls\":[],\"volumesFrom\":[]}]",
+            "cpu": "256",
+            "ephemeral_storage": [],
+            "execution_role_arn": "arn:aws:iam::729731350901:role/ecs_execution_role",
+            "family": "acme-task",
+            "id": "acme-task",
+            "inference_accelerator": [],
+            "ipc_mode": "",
+            "memory": "512",
+            "network_mode": "awsvpc",
+            "pid_mode": "",
+            "placement_constraints": [],
+            "proxy_configuration": [],
+            "requires_compatibilities": [
+              "FARGATE"
+            ],
+            "revision": 7,
+            "runtime_platform": [],
+            "skip_destroy": false,
+            "tags": {},
+            "tags_all": {},
+            "task_role_arn": "",
+            "track_latest": false,
+            "volume": []
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "aws_ecr_repository.my_ecr_repo",
+            "aws_iam_role.ecs_execution_role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "ecs_execution_role",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::729731350901:role/ecs_execution_role",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ecs-tasks.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2024-03-05T22:02:01Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "ecs_execution_role",
+            "inline_policy": [
+              {
+                "name": "ecs_execution_policy",
+                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ecr:GetAuthorizationToken\",\"ecr:BatchCheckLayerAvailability\",\"ecr:GetDownloadUrlForLayer\",\"ecr:GetRepositoryPolicy\",\"ecr:DescribeRepositories\",\"ecr:ListImages\",\"ecr:DescribeImages\",\"ecr:BatchGetImage\",\"ecr:GetLifecyclePolicy\",\"ecr:GetLifecyclePolicyPreview\",\"ecr:ListTagsForResource\",\"ecr:DescribeImageScanFindings\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\",\"logs:CreateLogGroup\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:logs:*:*:*\"}]}"
+              }
+            ],
+            "managed_policy_arns": [],
+            "max_session_duration": 3600,
+            "name": "ecs_execution_role",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": {},
+            "tags_all": {},
+            "unique_id": "AROA2TZ3AYF26XIIPH3JG"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy",
+      "name": "ecs_execution_policy",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "ecs_execution_role:ecs_execution_policy",
+            "name": "ecs_execution_policy",
+            "name_prefix": "",
+            "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ecr:GetAuthorizationToken\",\"ecr:BatchCheckLayerAvailability\",\"ecr:GetDownloadUrlForLayer\",\"ecr:GetRepositoryPolicy\",\"ecr:DescribeRepositories\",\"ecr:ListImages\",\"ecr:DescribeImages\",\"ecr:BatchGetImage\",\"ecr:GetLifecyclePolicy\",\"ecr:GetLifecyclePolicyPreview\",\"ecr:ListTagsForResource\",\"ecr:DescribeImageScanFindings\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\",\"logs:CreateLogGroup\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:logs:*:*:*\"}]}",
+            "role": "ecs_execution_role"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.ecs_execution_role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lb",
+      "name": "my_app_load_balancer",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_logs": [
+              {
+                "bucket": "",
+                "enabled": false,
+                "prefix": ""
+              }
+            ],
+            "arn": "arn:aws:elasticloadbalancing:eu-central-1:729731350901:loadbalancer/app/acme-lb/c7334d031547b0dc",
+            "arn_suffix": "app/acme-lb/c7334d031547b0dc",
+            "connection_logs": [
+              {
+                "bucket": "",
+                "enabled": false,
+                "prefix": ""
+              }
+            ],
+            "customer_owned_ipv4_pool": "",
+            "desync_mitigation_mode": "defensive",
+            "dns_name": "acme-lb-2054218183.eu-central-1.elb.amazonaws.com",
+            "dns_record_client_routing_policy": null,
+            "drop_invalid_header_fields": false,
+            "enable_cross_zone_load_balancing": true,
+            "enable_deletion_protection": false,
+            "enable_http2": true,
+            "enable_tls_version_and_cipher_suite_headers": false,
+            "enable_waf_fail_open": false,
+            "enable_xff_client_port": false,
+            "enforce_security_group_inbound_rules_on_private_link_traffic": "",
+            "id": "arn:aws:elasticloadbalancing:eu-central-1:729731350901:loadbalancer/app/acme-lb/c7334d031547b0dc",
+            "idle_timeout": 60,
+            "internal": false,
+            "ip_address_type": "ipv4",
+            "load_balancer_type": "application",
+            "name": "acme-lb",
+            "name_prefix": "",
+            "preserve_host_header": false,
+            "security_groups": [
+              "sg-077fedbdad01a66b4"
+            ],
+            "subnet_mapping": [
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-039dc66359f705c37"
+              },
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-04120076c06047e06"
+              },
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-0fc8df3dd56db4503"
+              }
+            ],
+            "subnets": [
+              "subnet-039dc66359f705c37",
+              "subnet-04120076c06047e06",
+              "subnet-0fc8df3dd56db4503"
+            ],
+            "tags": {},
+            "tags_all": {},
+            "timeouts": null,
+            "vpc_id": "vpc-0862d1c5a0373262f",
+            "xff_header_processing_mode": "append",
+            "zone_id": "Z215JYRZR1TBD5"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_security_group.sg",
+            "data.aws_subnets.default_public",
+            "data.aws_vpc.default"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lb_listener",
+      "name": "listener",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "alpn_policy": null,
+            "arn": "arn:aws:elasticloadbalancing:eu-central-1:729731350901:listener/app/acme-lb/c7334d031547b0dc/1d60670c35176b9a",
+            "certificate_arn": null,
+            "default_action": [
+              {
+                "authenticate_cognito": [],
+                "authenticate_oidc": [],
+                "fixed_response": [],
+                "forward": [],
+                "order": 1,
+                "redirect": [],
+                "target_group_arn": "arn:aws:elasticloadbalancing:eu-central-1:729731350901:targetgroup/acme-tg/0594a2941152be3a",
+                "type": "forward"
+              }
+            ],
+            "id": "arn:aws:elasticloadbalancing:eu-central-1:729731350901:listener/app/acme-lb/c7334d031547b0dc/1d60670c35176b9a",
+            "load_balancer_arn": "arn:aws:elasticloadbalancing:eu-central-1:729731350901:loadbalancer/app/acme-lb/c7334d031547b0dc",
+            "mutual_authentication": [],
+            "port": 80,
+            "protocol": "HTTP",
+            "ssl_policy": "",
+            "tags": {},
+            "tags_all": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsInVwZGF0ZSI6MzAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "aws_lb.my_app_load_balancer",
+            "aws_lb_target_group.my_target_group",
+            "aws_security_group.sg",
+            "data.aws_subnets.default_public",
+            "data.aws_vpc.default"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lb_target_group",
+      "name": "my_target_group",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:elasticloadbalancing:eu-central-1:729731350901:targetgroup/acme-tg/0594a2941152be3a",
+            "arn_suffix": "targetgroup/acme-tg/0594a2941152be3a",
+            "connection_termination": null,
+            "deregistration_delay": "300",
+            "health_check": [
+              {
+                "enabled": true,
+                "healthy_threshold": 3,
+                "interval": 30,
+                "matcher": "200",
+                "path": "/api/healthcheck",
+                "port": "3000",
+                "protocol": "HTTP",
+                "timeout": 3,
+                "unhealthy_threshold": 2
+              }
+            ],
+            "id": "arn:aws:elasticloadbalancing:eu-central-1:729731350901:targetgroup/acme-tg/0594a2941152be3a",
+            "ip_address_type": "ipv4",
+            "lambda_multi_value_headers_enabled": false,
+            "load_balancer_arns": [
+              "arn:aws:elasticloadbalancing:eu-central-1:729731350901:loadbalancer/app/acme-lb/c7334d031547b0dc"
+            ],
+            "load_balancing_algorithm_type": "round_robin",
+            "load_balancing_anomaly_mitigation": "off",
+            "load_balancing_cross_zone_enabled": "use_load_balancer_configuration",
+            "name": "acme-tg",
+            "name_prefix": "",
+            "port": 3000,
+            "preserve_client_ip": null,
+            "protocol": "HTTP",
+            "protocol_version": "HTTP1",
+            "proxy_protocol_v2": false,
+            "slow_start": 0,
+            "stickiness": [
+              {
+                "cookie_duration": 86400,
+                "cookie_name": "",
+                "enabled": false,
+                "type": "lb_cookie"
+              }
+            ],
+            "tags": {},
+            "tags_all": {},
+            "target_failover": [
+              {
+                "on_deregistration": null,
+                "on_unhealthy": null
+              }
+            ],
+            "target_health_state": [
+              {
+                "enable_unhealthy_connection_termination": null
+              }
+            ],
+            "target_type": "ip",
+            "vpc_id": "vpc-0862d1c5a0373262f"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "data.aws_vpc.default"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "example",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::com.bucket.example.tofu.foo.bar",
+            "bucket": "com.bucket.example.tofu.foo.bar",
+            "bucket_domain_name": "com.bucket.example.tofu.foo.bar.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "com.bucket.example.tofu.foo.bar.s3.eu-central-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "c926c048dcaebbe44ca3eab5f0c96b7caeb83861a74da2abeb5607038f6ecf3b",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z21DNDUVLTQW6Q",
+            "id": "com.bucket.example.tofu.foo.bar",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "eu-central-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "tags_all": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "sg",
+      "provider": "provider[\"registry.opentofu.org/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:729731350901:security-group/sg-077fedbdad01a66b4",
+            "description": "Allow traffic to ECS Fargate and ALB",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-077fedbdad01a66b4",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 3000,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 3000
+              },
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "acme-sg",
+            "name_prefix": "",
+            "owner_id": "729731350901",
+            "revoke_rules_on_delete": false,
+            "tags": {},
+            "tags_all": {},
+            "timeouts": null,
+            "vpc_id": "vpc-0862d1c5a0373262f"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.aws_vpc.default"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
+
